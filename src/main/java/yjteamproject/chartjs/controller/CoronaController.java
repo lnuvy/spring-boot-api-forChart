@@ -16,7 +16,7 @@ import static java.lang.Integer.parseInt;
 @Log4j2
 @RequestMapping("/api")
 @RestController
-public class HttpResponseController {
+public class CoronaController {
 
     @Autowired
     CoronaRepository coronaRepository;

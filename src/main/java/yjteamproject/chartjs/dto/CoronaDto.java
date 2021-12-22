@@ -1,9 +1,5 @@
 package yjteamproject.chartjs.dto;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-
 public class CoronaDto {
 
     private String start;
