@@ -11,39 +11,12 @@ import yjteamproject.chartjs.repository.CoronaRepository;
 
 import java.util.List;
 
+import static java.lang.Integer.parseInt;
+
 @Log4j2
 @RequestMapping("/api")
 @RestController
 public class HttpResponseController {
-
-//    // data_visualization 의 smokes 컬렉션
-//    @Autowired
-//    CsvRepository csvRepository;
-//
-//
-//    @RequestMapping("/test")
-//    public ResponseEntity<?> requestParam(
-//            /*@RequestParam(required = false) String sex,
-//            @RequestParam(required = false) String smoker,
-//            @RequestParam(required = false) String age*/
-//            CsvData csvData
-//    ) {
-//        /*if(sex != null && smoker == null) {
-//            dataList = csvRepository.findBySex(sex);
-//
-//        } else if(sex == null && smoker != null) {
-//            dataList = csvRepository.findBySmoker(smoker);
-//
-//        } else if(sex == null && smoker == null) {
-//            dataList = csvRepository.findAll();
-//        } else {
-//            dataList = csvRepository.findBySexAndSmoker(sex, smoker);
-//        }*/
-//        List<CsvData> dataList = csvRepository.findAllByAge(csvData.getAge());
-//
-//        return new ResponseEntity<>(dataList, HttpStatus.OK);
-//    }
-
 
     @Autowired
     CoronaRepository coronaRepository;
@@ -52,10 +25,20 @@ public class HttpResponseController {
     public ResponseEntity<?> requestParam(CoronaDto coronaDto) {
         List<Corona> dataList;
 
-        if(coronaDto.getStart() == null || coronaDto.getEnd() == null) {
+        if(coronaDto.getStart() == null && coronaDto.getEnd() == null) {
             dataList = coronaRepository.findAll();
+        } else if(coronaDto.getEnd() == null) {
+            dataList = coronaRepository.findAllByDayBetween(String.valueOf(parseInt(coronaDto.getStart())-1), "20211131" );
+        } else if(coronaDto.getStart() == null) {
+            dataList = coronaRepository.findAllByDayBetween( "20200101", String.valueOf(parseInt(coronaDto.getEnd())+1) );
         } else {
-            dataList = coronaRepository.findAllByDayBetween(coronaDto.getStart(), coronaDto.getEnd());
+            String startDay = coronaDto.getStart();
+            String endDay = coronaDto.getEnd();
+
+            int start = parseInt(startDay) -1;
+            int end = parseInt(endDay) +1;
+
+            dataList = coronaRepository.findAllByDayBetween(String.valueOf(start), String.valueOf(end));
         }
         return new ResponseEntity<>(dataList, HttpStatus.OK);
     }

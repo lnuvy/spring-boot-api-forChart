@@ -10,9 +10,11 @@ import java.util.List;
 @Repository
 public interface CsvRepository extends MongoRepository<CsvData, String> {
 
-    List<CsvData> findAllByAge(String age);
-    List<CsvData> findAllBySex(String sex);
-    List<CsvData> findAllBySmoker(String Smoker);
+    List<CsvData> findBySex(String sex);
+    List<CsvData> findByAge(String age);
+    List<CsvData> findBySmoker(String smoker);
 
-//    List<CsvData> findAllBy
+    /* List<CsvData> findAllByAge(String age);
+    List<CsvData> findAllBySex(String sex);
+    List<CsvData> findAllBySmoker(String Smoker); */
 }
