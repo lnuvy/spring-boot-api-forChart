@@ -21,7 +21,7 @@ public class CoronaController {
     @Autowired
     CoronaRepository coronaRepository;
 
-    @GetMapping("/corona")
+    @GetMapping("/coronas")
     public ResponseEntity<?> requestParam(CoronaDto coronaDto) {
         List<Corona> dataList;
 

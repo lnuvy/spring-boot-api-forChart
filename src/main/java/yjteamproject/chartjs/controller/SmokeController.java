@@ -10,7 +10,6 @@ import yjteamproject.chartjs.document.CsvData;
 import yjteamproject.chartjs.repository.CsvRepository;
 
 import java.util.List;
-
 @RestController
 public class SmokeController {
 
@@ -44,3 +43,4 @@ public class SmokeController {
         return new ResponseEntity<>(dataList, HttpStatus.OK);
     }
 }
+

@@ -14,7 +14,7 @@ import yjteamproject.chartjs.repository.BusRepository;
 import java.util.List;
 
 
-@RequestMapping("/bus")
+@RequestMapping("/buses")
 @RestController
 public class BusInfoController {
 
