@@ -11,16 +11,12 @@ public class BusData {
 
     @Id
     private String _id;
-
     @Field("년월")
     private String monthYear;
-
     @Field("노선")
     private String busNumber;
-
     @Field("구분")
     private String sort;
-
     @Field("05시")
     private String five;
     @Field("06시")

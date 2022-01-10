@@ -21,7 +21,7 @@ public class BusInfoController {
     @Autowired
     BusRepository busRepository;
 
-    @GetMapping("/test")
+    @GetMapping("/info")
     public ResponseEntity<?> requestInfo(BusDto busDto) {
         List<BusData> dataList;
 

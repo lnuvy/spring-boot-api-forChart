@@ -1,9 +1,7 @@
 package yjteamproject.chartjs.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
-import yjteamproject.chartjs.document.CsvData;
 
 import java.util.List;
 
